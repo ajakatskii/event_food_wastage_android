@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="calorie_count_color">#009688</color>
+
+    <color name="calorie_count_bad_color">#F44336</color>
+
+    <color name="event_food_wastage_score_color">#03A9F4</color>
+
 </resources>
