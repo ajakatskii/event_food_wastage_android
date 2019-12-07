@@ -39,10 +39,8 @@ public class UpcomingEventsAdapter extends RecyclerView.Adapter<UpcomingEventsVi
                 TextView txtEventName = view.findViewById(R.id.txtEventName);
                 //open new activity
                 String eventName = txtEventName.getText().toString();
-                Bundle args = new Bundle();
-                args.putString("event_name", eventName);
                 Intent intent = new Intent(view.getContext(), EventViewActivity.class);
-                intent.putExtras(args);
+                intent.putExtra("event_name", eventName);
                 Registry.getInstance().context.startActivity(intent);
             }
         });

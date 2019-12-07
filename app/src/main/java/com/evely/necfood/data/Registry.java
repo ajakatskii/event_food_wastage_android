@@ -3,7 +3,10 @@ package com.evely.necfood.data;
 import android.content.Context;
 
 import com.evely.necfood.data.collections.EventCollection;
+import com.evely.necfood.data.collections.FeedCollection;
 import com.evely.necfood.data.repository.SeedDataMemory;
+
+import java.util.ArrayList;
 
 public class Registry {
 
@@ -22,6 +25,12 @@ public class Registry {
 
     private EventCollection eventCol;
 
+    private FeedCollection feedCol;
+
+    private ArrayList<FoodItem> allVeg;
+
+    private ArrayList<FoodItem> allNonVeg;
+
     public EventCollection getEventCol()
     {
         if(this.eventCol == null)
@@ -29,6 +38,32 @@ public class Registry {
             this.eventCol = SeedDataMemory.getEvents();
         }
         return this.eventCol;
+    }
+
+    public FeedCollection getFeedCol()
+    {
+        if(this.feedCol == null)
+        {
+            this.feedCol = SeedDataMemory.getFeeds();
+        }
+        return this.feedCol;
+    }
+
+    public ArrayList<FoodItem> getAllVeg()
+    {
+        if(this.allVeg == null)
+        {
+            this.allVeg = SeedDataMemory.createAllVegFoodOptions();
+        }
+        return this.allVeg;
+    }
+
+    public ArrayList<FoodItem> getAllNonVeg()
+    {
+        if(this.allNonVeg == null) {
+            this.allNonVeg = SeedDataMemory.createAllNonVegFoodOptions();
+        }
+        return  this.allNonVeg;
     }
 
 }

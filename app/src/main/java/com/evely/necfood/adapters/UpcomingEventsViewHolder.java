@@ -50,7 +50,7 @@ public class UpcomingEventsViewHolder extends RecyclerView.ViewHolder {
         this.txtDate.setText(event.getHRADate());
         this.llAttending.setVisibility(event.willAttend ? View.VISIBLE : View.INVISIBLE);
         int visibility = View.VISIBLE;
-        if(!event.isMenuSelected) {
+        if(!event.isMenuSelected()) {
             visibility = View.INVISIBLE;
         }
         this.ivMenuSelected.setVisibility(visibility);
