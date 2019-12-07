@@ -28,6 +28,7 @@
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_gravity="center"
+            android:onClick="btnBefore_Click"
             app:srcCompat="@drawable/photo_camera_128" />
     </androidx.cardview.widget.CardView>
 
@@ -50,6 +51,7 @@
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_gravity="center"
+            android:onClick="brnAfter_Click"
             app:srcCompat="@drawable/photo_camera_128" />
     </androidx.cardview.widget.CardView>
 
@@ -105,6 +107,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <HorizontalScrollView
+        android:id="@+id/hlResults"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -193,7 +196,8 @@
                 android:id="@+id/cvReward"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="18dp">
+                android:layout_marginStart="18dp"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -215,7 +219,7 @@
                         android:id="@+id/textView64"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Reward Coins"
+                        android:text="Probable Reward"
                         android:textSize="18sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

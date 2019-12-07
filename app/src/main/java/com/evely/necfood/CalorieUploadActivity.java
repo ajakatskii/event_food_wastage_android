@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,11 +28,15 @@ public class CalorieUploadActivity extends AppCompatActivity {
 
     private TextView txtPercent;
 
+    private TextView txtScore;
+
     private Bitmap beforeDish;
 
     private Bitmap afterDish;
 
     public boolean isAfter;
+
+    private HorizontalScrollView hlResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,7 @@ public class CalorieUploadActivity extends AppCompatActivity {
         initViews();
         loadBeforeDish();
         this.cameraHelper = new CameraCaptureUtil(this);
+        hlResults.setVisibility(View.INVISIBLE);
     }
 
     public void loadBeforeDish()
@@ -58,6 +64,8 @@ public class CalorieUploadActivity extends AppCompatActivity {
         ivAfter = findViewById(R.id.imageView34);
         txtCalories = findViewById(R.id.textView59);
         txtPercent = findViewById(R.id.textView61);
+        hlResults = findViewById(R.id.hlResults);
+        txtScore = findViewById(R.id.textView63);
     }
 
     public void btnBefore_Click(View vw)
@@ -74,8 +82,18 @@ public class CalorieUploadActivity extends AppCompatActivity {
 
     public void calculateCalories()
     {
-        txtPercent.setText(String.format("%s %", String.valueOf(Utils.analyzeFoodWastage())));
-        txtCalories.setText(String.format("%s kC.", String.valueOf(Utils.analyzeCalories())));
+        Double calories = Utils.analyzeCalories();
+        int points = (int) Math.round(Utils.analyzeFoodWastage() / 10.0);
+        txtPercent.setText(String.valueOf(Utils.analyzeFoodWastage() + " %"));
+        txtCalories.setText(String.format("%s kC.", String.valueOf(calories)));
+        txtScore.setText(String.valueOf(points));
+
+        Registry.getInstance().extraCoins += points;
+        Registry.getInstance().getEventCol().ongoingEvent.curCalories += calories;
+
+        Utils.showMessage("Calories calculated and updated");
+        hlResults.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -89,6 +107,7 @@ public class CalorieUploadActivity extends AppCompatActivity {
                 //start calorie calculations
                 Registry.getInstance().clearBeforeDishPic();
                 this.afterDish = BitmapFactory.decodeFile(this.cameraHelper.lastPicturePath);
+                this.ivAfter.setImageBitmap(this.afterDish);
                 this.calculateCalories();
             } else {
                 this.beforeDish = BitmapFactory.decodeFile(this.cameraHelper.lastPicturePath);

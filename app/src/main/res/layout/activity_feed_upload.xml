@@ -24,13 +24,14 @@
             android:id="@+id/ivFeedImg"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:onClick="btnPicture_Click"
             android:padding="25dp"
             app:srcCompat="@drawable/photo_camera_128" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView7"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="64dp"

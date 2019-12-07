@@ -34,6 +34,7 @@ public class FlavorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_flavor);
 
         this.loadRadar();
+        this.loadDataSuccess();
     }
 
     protected void loadRadar() {
@@ -43,7 +44,7 @@ public class FlavorActivity extends AppCompatActivity {
         factors.append(4, R.string.sweet);
         factors.append(5, R.string.sour);
 
-        mTfLight = Typeface.createFromAsset(this.getAssets(), "OpenSans-Light.ttf");
+        mTfLight = Typeface.SANS_SERIF; //Typeface.createFromAsset(this.getAssets(), "OpenSans-Light.ttf");
 
         mChart = (RadarChart) this.findViewById(R.id.chart);
 

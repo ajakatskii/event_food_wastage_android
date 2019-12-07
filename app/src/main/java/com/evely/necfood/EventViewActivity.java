@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.evely.necfood.adapters.FeedAdapter;
 import com.evely.necfood.data.Event;
 import com.evely.necfood.data.Registry;
 import com.evely.necfood.utils.Utils;
@@ -41,6 +42,8 @@ public class EventViewActivity extends AppCompatActivity {
 
     private CardView cvPostFeed;
 
+    public FeedAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +53,20 @@ public class EventViewActivity extends AppCompatActivity {
         fillEventData();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fillEventData();
+        adapter.notifyDataSetChanged();
+    }
+
     private void getEvent()
     {
         String eventName = this.getIntent().getStringExtra("event_name");
         //did we get an event name?
         this.event = Registry.getInstance().getEventCol()
                 .nameEvents.get(eventName);
+        this.event.isMenuSelected();
     }
 
     private void initViews()
@@ -83,6 +94,11 @@ public class EventViewActivity extends AppCompatActivity {
         rvFeeds = findViewById(R.id.recyclerView);
         manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         rvFeeds.setLayoutManager(manager);
+        adapter = new FeedAdapter(Registry.getInstance().getFeedCol());
+        //if the event is running only then show the live feed.
+        if(event.isOngoing) {
+            rvFeeds.setAdapter(adapter);
+        }
     }
 
     private void fillEventData()
@@ -93,15 +109,15 @@ public class EventViewActivity extends AppCompatActivity {
                 R.drawable.star, R.drawable.star_off);
         Utils.setStars(event.avgStars, llAvgRatings);
 
-        txtVegCount.setText(String.valueOf(event.veg.size()));
-        txtSelectedVegCount.setText(String.valueOf(event.nonVeg.size()));
+        txtVegCount.setText(String.format("/ %s",String.valueOf(event.veg.size())));
+        txtSelectedVegCount.setText(String.valueOf(event.getSelectedVegCount()));
 
-        txtNonVegCount.setText(String.valueOf(event.nonVeg.size()));
+        txtNonVegCount.setText(String.format("/ %s",String.valueOf(event.nonVeg.size())));
         txtSelectedNonVegCount.setText(String.valueOf(event.getSelectedNonVegCount()));
 
     }
 
-    private void rating_onClick(View vw)
+    public void rating_onClick(View vw)
     {
         int i;
         for(i = 0; i < llUserRatings.getChildCount(); i++)
@@ -113,7 +129,7 @@ public class EventViewActivity extends AppCompatActivity {
                 break;
             }
         }
-        this.event.userStars = i + 1;
+        this.event.userStars = ++i;
         for(;i < llUserRatings.getChildCount(); i++)
         {
             ImageView iv = (ImageView)llUserRatings.getChildAt(i);
@@ -121,20 +137,20 @@ public class EventViewActivity extends AppCompatActivity {
         }
     }
 
-    private void btnPostFeed_Click(View vw)
+    public void btnPostFeed_Click(View vw)
     {
         Intent intent = new Intent(this.getApplicationContext(), FeedUploadActivity.class);
         startActivity(intent);
     }
 
-    private void btnFoodMenu_Click(View vw)
+    public void btnFoodMenu_Click(View vw)
     {
         Intent intent = new Intent(this.getApplicationContext(), FoodMenuActivity.class);
         intent.putExtra("event_name", event.name);
         startActivity(intent);
     }
 
-    private void btnYourPlate_Click(View vw)
+    public void btnYourPlate_Click(View vw)
     {
         Intent intent = new Intent(this.getApplicationContext(), CalorieUploadActivity.class);
         startActivity(intent);

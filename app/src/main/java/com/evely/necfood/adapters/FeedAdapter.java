@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.evely.necfood.FeedView;
@@ -26,7 +27,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedViewHolder> {
     @NonNull
     @Override
     public FeedViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView cv = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, parent, false);
+        ConstraintLayout cv = (ConstraintLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.feed_item, parent, false);
         cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

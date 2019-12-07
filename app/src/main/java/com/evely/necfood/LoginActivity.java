@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         if(user == null) {
             //clear values from text fields?
             //do something?
+            Utils.showMessage("Invalid credentials");
             return;
         } else {
             //correct password entered, according to the user redirect to correct activity

@@ -56,10 +56,12 @@ public class CameraCaptureUtil {
     public boolean retrieveImage(int requestCode, int resultCode, Intent data)
     {
         //we got an image
-        if(requestCode== CAMERA_CAPTURE && resultCode == Activity.RESULT_OK)
+        if(requestCode == CAMERA_CAPTURE && resultCode == Activity.RESULT_OK)
         {
-            Bundle args = data.getExtras();
-            this.lastPicture = (Bitmap) args.get("data");
+            if(data != null) {
+                Bundle args = data.getExtras();
+                this.lastPicture = (Bitmap) args.get("data");
+            }
             return true;
         }
         return false;

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.evely.necfood.data.Feed;
 import com.evely.necfood.data.Registry;
 
+import java.text.SimpleDateFormat;
+
 public class FeedView extends AppCompatActivity {
 
     private Feed feed;
@@ -53,11 +55,12 @@ public class FeedView extends AppCompatActivity {
 
     protected void loadData()
     {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd / MM / yyyy");
         this.ivFeedImage.setImageBitmap(feed.image);
         this.ivUserImage.setImageResource(feed.profileImgResId);
         txtUsername.setText(feed.name);
         etDesc.setText(feed.description);
-        txtDate.setText(feed.postDate.toString());
+        txtDate.setText(formatter.format(feed.postDate));
         txtPublicViews.setText(String.valueOf(feed.publicViews));
     }
 }

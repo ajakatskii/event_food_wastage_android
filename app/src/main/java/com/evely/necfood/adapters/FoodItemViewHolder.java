@@ -54,7 +54,7 @@ public class FoodItemViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View view) {
                 //do something here?
-                view.getId();
+                item.selected = cbFood.isChecked();
             }
         });
     }

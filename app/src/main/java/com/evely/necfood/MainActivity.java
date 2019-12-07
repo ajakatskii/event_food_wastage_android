@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     intent = new Intent(getApplicationContext(), CalorieUploadActivity.class);
 //                    mTextMessage.setText(R.string.title_home);
-                    return true;
+//                    return true;
+                    break;
                 case R.id.navigation_dashboard:
 //                    intent = new Intent(getApplicationContext(), CalorieUploadActivity.class);
 //                    mTextMessage.setText(R.string.title_dashboard);
@@ -89,14 +90,15 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_notifications:
                     intent = new Intent(getApplicationContext(), FlavorActivity.class);
 //                    mTextMessage.setText(R.string.title_notifications);
-                    return true;
+//                    return true;
+                    break;
             }
             if(intent == null) {
                 return false;
             } else {
                 startActivity(intent);
             }
-            return false;
+            return true;
         }
     };
 
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                 Registry.getInstance().user = null;
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         //ongoing event related views
@@ -174,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     protected void setCurrentEventData()
     {
         Event e = this.eventCol.ongoingEvent;
@@ -208,6 +213,32 @@ public class MainActivity extends AppCompatActivity {
     {
         this.txtStatsCurEventName.setText(eventName);
         this.txtCurEventScore.setText(String.format("%s/10", score));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setCurrentEventData();
+        setUser();
+    }
+
+    public void txtReport_Click(View vw)
+    {
+        Intent intent = new Intent(this, FeedUploadActivity.class);
+        startActivity(intent);
+    }
+
+    public void txtMenu_Click(View vw)
+    {
+        Intent intent = new Intent(this, FoodMenuActivity.class);
+        intent.putExtra("event_name", txtCurEventName.getText().toString());
+        startActivity(intent);
+    }
+
+    public void rewards_click(View vw)
+    {
+        Intent intent = new Intent(this, RewardsActivity.class);
+        startActivity(intent);
     }
 
 }

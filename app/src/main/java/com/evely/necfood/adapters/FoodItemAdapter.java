@@ -21,6 +21,7 @@ public class FoodItemAdapter
 
     public FoodItemAdapter(ArrayList<FoodItem> items)
     {
+        super();
         this.items = items;
     }
 

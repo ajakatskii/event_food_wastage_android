@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.view.View;
 
+import com.evely.necfood.adapters.FeedAdapter;
 import com.evely.necfood.adapters.FoodItemAdapter;
 import com.evely.necfood.data.Event;
 import com.evely.necfood.data.FoodItem;
@@ -36,28 +37,29 @@ public class FoodMenuActivity extends AppCompatActivity {
     {
         String eventName = getIntent().getStringExtra("event_name");
         event = Registry.getInstance().getEventCol().nameEvents.get(eventName);
+        this.event.loadFoodOptions();
     }
 
     private void loadViews()
     {
         rvFoodItems = findViewById(R.id.rvFoodItems);
-        lManager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
-        this.event.loadFoodOptions();
-        rvAdapter = new FoodItemAdapter(event.veg);
+        lManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+        rvAdapter  = new FoodItemAdapter(event.veg);
+        rvFoodItems.setLayoutManager(lManager);
         rvFoodItems.setAdapter(rvAdapter);
     }
 
-    private void btnVeg_Click(View vw)
+    public void btnVeg_Click(View vw)
     {
         rvAdapter.changeData(event.veg);
     }
 
-    private void btnNonVeg_Click(View vw)
+    public void btnNonVeg_Click(View vw)
     {
         rvAdapter.changeData(event.nonVeg);
     }
 
-    private void btnBeverages_Click(View vw)
+    public void btnBeverages_Click(View vw)
     {
         rvAdapter.changeData(new ArrayList<FoodItem>());
     }

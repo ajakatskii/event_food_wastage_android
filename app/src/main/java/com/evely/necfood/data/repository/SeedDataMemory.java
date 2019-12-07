@@ -8,6 +8,7 @@ import com.evely.necfood.data.Event;
 import com.evely.necfood.data.Feed;
 import com.evely.necfood.data.FoodItem;
 import com.evely.necfood.data.Registry;
+import com.evely.necfood.data.Reward;
 import com.evely.necfood.data.collections.EventCollection;
 import com.evely.necfood.data.collections.FeedCollection;
 
@@ -583,6 +584,74 @@ public class SeedDataMemory {
                 false
         ));
         return items;
+    }
+
+    public static ArrayList<Reward> getRewards()
+    {
+        ArrayList<Reward> rewards = new ArrayList<>();
+
+        rewards.add(
+                new Reward(
+                        "Zomato Gold Membership",
+                        "Enjoy 2 years of zomato gold membership. On availing, your coupon code will be emailed to you within 24 hours",
+                        1200,
+                        false,
+                        R.drawable.badge_plain
+                )
+        );
+
+        rewards.add(
+                new Reward(
+                        "Dine-out Membership (14 months)",
+                        "Enjoy 2 years of Dineout exclusive membership. On availing, your coupon code will be emailed to you within 24 hours",
+                        1400,
+                        false,
+                        R.drawable.badge_plain
+                )
+        );
+
+        rewards.add(
+                new Reward(
+                        "Make My Trip Discount Vouchers",
+                        "Get Rs. 500 off on your next flight booking. On availing, your coupon code will be emailed to you within 24 hours",
+                        700,
+                        false,
+                        R.drawable.badge_plain
+                )
+        );
+
+        rewards.add(
+                new Reward(
+                        "Exclusive Swiggy Delivery Free Coupon",
+                        "Enjoy 3 months of paying no delivery charges when you order on Swiggy. On availing, your coupon code will be emailed to you within 24 hours",
+                        600,
+                        false,
+                        R.drawable.badge_plain
+                )
+        );
+
+        rewards.add(
+                new Reward(
+                        "MoJo pizza 50% off pass",
+                        "Get 50% off on 1 pizza each day for next 2 months. On availing your coupon code will be emailed to you within 24 hours",
+                        900,
+                        false,
+                        R.drawable.badge_plain
+                )
+        );
+
+        rewards.add(
+                new Reward(
+                        "Box 8 Priority pass",
+                        "Order from Box8 and get complimentary dished for free anf priority delivery. On availing your coupon code will be emailed to you within 24 hours",
+                        1700,
+                        false,
+                        R.drawable.badge_plain
+                )
+        );
+
+
+        return rewards;
     }
 
 }

@@ -79,4 +79,17 @@ public class Registry {
         return (this.beforeDish != null);
     }
 
+    public int extraCoins = 0;
+
+    private ArrayList<Reward> rewards;
+
+    public ArrayList<Reward> getRewards()
+    {
+        if(rewards == null)
+        {
+            this.rewards = SeedDataMemory.getRewards();
+        }
+        return this.rewards;
+    }
+
 }

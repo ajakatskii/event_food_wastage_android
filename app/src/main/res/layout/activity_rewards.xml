@@ -89,19 +89,19 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAwards"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="#2196F3"
-        android:paddingTop="10dp"
         android:paddingStart="20dp"
+        android:paddingTop="10dp"
         android:paddingEnd="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
         tools:itemCount="9"
-        tools:listitem="@layout/reward_item"
-    />
+        tools:listitem="@layout/reward_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

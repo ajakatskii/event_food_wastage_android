@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.evely.necfood.R;
@@ -14,7 +15,7 @@ import com.evely.necfood.data.Feed;
 
 public class FeedViewHolder extends RecyclerView.ViewHolder {
 
-    private CardView container;
+    private ConstraintLayout container;
 
     private ImageView ivImage;
 
@@ -31,7 +32,7 @@ public class FeedViewHolder extends RecyclerView.ViewHolder {
 
     public FeedViewHolder(@NonNull View itemView) {
         super(itemView);
-        this.container = (CardView)itemView;
+        this.container = (ConstraintLayout) itemView;
         this.initViews();
     }
 

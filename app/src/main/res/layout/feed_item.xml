@@ -11,16 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/textView24">
 
         <ImageView
             android:id="@+id/imageView24"
             android:layout_width="128dp"
             android:layout_height="128dp"
+            android:scaleType="fitXY"
             app:srcCompat="@drawable/fruits" />
     </androidx.cardview.widget.CardView>
 
@@ -46,7 +47,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
                 app:cardBackgroundColor="#5EADEE"
                 app:cardCornerRadius="5dp"
@@ -112,14 +112,14 @@
 
             <EditText
                 android:id="@+id/editText2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="148dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="135dp"
                 android:backgroundTint="#efefef"
+                android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="start|top"
-                android:inputType="textMultiLine"
                 android:text="Please do not waste so much of fruits"
                 android:textColor="#787878"
                 android:textSize="10sp"
@@ -127,6 +127,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/cvInspectorFoodWastage"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/cvInspectorFoodWastage" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -161,11 +162,11 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="7th December 9:30 A.M."
         android:textColor="#898989"
         android:textSize="10sp"
-        app:layout_constraintStart_toEndOf="@+id/cvWastagePic"
-        app:layout_constraintTop_toBottomOf="@+id/cvWastageDetails"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
