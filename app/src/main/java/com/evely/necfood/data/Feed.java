@@ -19,9 +19,12 @@ public class Feed {
 
     public int profileImgResId;
 
+    public int publicViews;
+
     public Feed(String desc, double foodWastage,
                 String name, Date postDate,
-                Bitmap image, int profileImgResId)
+                Bitmap image, int profileImgResId,
+                int publicViews)
     {
         this.description = desc;
         this.foodWastage = foodWastage;
@@ -29,6 +32,7 @@ public class Feed {
         this.postDate = postDate;
         this.image = image;
         this.profileImgResId = profileImgResId;
+        this.publicViews = publicViews;
     }
 
 }

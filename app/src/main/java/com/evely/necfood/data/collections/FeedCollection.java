@@ -29,4 +29,16 @@ public class FeedCollection {
         });
     }
 
+    public Feed findByDesc(String desc)
+    {
+        for(Feed f: feeds)
+        {
+            if(f.description.equals(desc))
+            {
+                return f;
+            }
+        }
+        return null;
+    }
+
 }

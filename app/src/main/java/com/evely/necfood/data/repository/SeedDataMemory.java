@@ -191,7 +191,8 @@ public class SeedDataMemory {
                 "Anonymous",
                 cal.getTime(),
                 BitmapFactory.decodeResource(res, R.drawable.fw_1),
-                R.drawable.anon
+                R.drawable.anon,
+                23
         );
         col.add(feed);
         cal.set(2019,11,8, 8, 15);
@@ -201,7 +202,8 @@ public class SeedDataMemory {
                 "Anonymous",
                 cal.getTime(),
                 BitmapFactory.decodeResource(res, R.drawable.fw_2),
-                R.drawable.anon
+                R.drawable.anon,
+                45
         );
         col.add(feed);
         cal.set(2019,11,8, 8, 17);
@@ -212,7 +214,8 @@ public class SeedDataMemory {
                 "Anonymous",
                 cal.getTime(),
                 BitmapFactory.decodeResource(res, R.drawable.fw_3),
-                R.drawable.anon
+                R.drawable.anon,
+                78
         );
         col.add(feed);
         col.sort();
