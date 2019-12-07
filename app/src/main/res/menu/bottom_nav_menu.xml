@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/camera_24"
+        android:enabled="false"
+        android:title="Calorie Counter" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:enabled="true"
+        android:icon="@drawable/view_medium_icon_24"
+        android:checked="true"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/radar_24"
+        android:enabled="false"
+        android:title="Flavours" />
+
+</menu>

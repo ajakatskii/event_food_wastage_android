@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f1"
+    tools:context=".FoodMenuActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="10dp">
+
+                <Button
+                    android:id="@+id/btnVegMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_grad_4"
+                    android:drawableStart="@drawable/veg"
+                    android:drawablePadding="12dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="Vegetarian"
+                    android:textColor="#f1f1f1" />
+
+                <Button
+                    android:id="@+id/btnNonVegMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/login_grad_3"
+                    android:drawableStart="@drawable/non_veg"
+                    android:drawablePadding="12dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="Non-Vegetarian"
+                    android:textColor="#f1f1f1" />
+
+                <Button
+                    android:id="@+id/btnBeverages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/login_grad_3"
+                    android:drawableStart="@drawable/soft_drink"
+                    android:drawablePadding="12dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:text="Beverages"
+                    android:textColor="#f1f1f1" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2"
+        tools:itemCount="6"
+        tools:listitem="@layout/food_item"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
