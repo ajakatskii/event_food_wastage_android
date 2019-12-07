@@ -42,4 +42,27 @@ public class Utils {
         }
     }
 
+    public static void setStars(int starCount, LinearLayout ll,int orgResId, int repResId)
+    {
+        int i =0;
+        ImageView iv;
+        //first enable all views
+        for(i = 0; i < ll.getChildCount(); i++)
+        {
+            iv = (ImageView) ll.getChildAt(i);
+            iv.setVisibility(View.VISIBLE);
+        }
+        i =0;
+        for(i = 0; i < ll.getChildCount() && i < starCount; i++)
+        {
+            iv = (ImageView) ll.getChildAt(i);
+            iv.setImageResource(orgResId);
+        }
+        for(;i < ll.getChildCount();i++)
+        {
+            iv = (ImageView) ll.getChildAt(i);
+            iv.setImageResource(repResId);
+        }
+    }
+
 }

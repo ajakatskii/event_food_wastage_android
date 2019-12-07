@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -75,7 +77,8 @@ public class EventViewActivity extends AppCompatActivity {
     {
         ivEventImage.setImageResource(event.profileResourceId);
         txtEventName.setText(event.name);
-        Utils.setStars(event.userStars, llUserRatings);
+        Utils.setStars(event.userStars, llUserRatings,
+                R.drawable.star, R.drawable.star_off);
         Utils.setStars(event.avgStars, llAvgRatings);
 
         txtVegCount.setText(String.valueOf(event.veg.size()));
@@ -84,6 +87,45 @@ public class EventViewActivity extends AppCompatActivity {
         txtNonVegCount.setText(String.valueOf(event.nonVeg.size()));
         txtSelectedNonVegCount.setText(String.valueOf(event.getSelectedNonVegCount()));
 
+    }
+
+    private void rating_onClick(View vw)
+    {
+        int i;
+        for(i = 0; i < llUserRatings.getChildCount(); i++)
+        {
+            ImageView iv = (ImageView)llUserRatings.getChildAt(i);
+            iv.setImageResource(R.drawable.star);
+            if(vw.getId() == llUserRatings.getChildAt(i).getId())
+            {
+                break;
+            }
+        }
+        this.event.userStars = i + 1;
+        for(;i < llUserRatings.getChildCount(); i++)
+        {
+            ImageView iv = (ImageView)llUserRatings.getChildAt(i);
+            iv.setImageResource(R.drawable.star_off);
+        }
+    }
+
+    private void btnPostFeed_Click(View vw)
+    {
+        Intent intent = new Intent(this.getApplicationContext(), FeedUploadActivity.class);
+        startActivity(intent);
+    }
+
+    private void btnFoodMenu_Click(View vw)
+    {
+        Intent intent = new Intent(this.getApplicationContext(), FoodMenuActivity.class);
+        intent.putExtra("event_name", event.name);
+        startActivity(intent);
+    }
+
+    private void btnYourPlate_Click(View vw)
+    {
+        Intent intent = new Intent(this.getApplicationContext(), CalorieUploadActivity.class);
+        startActivity(intent);
     }
 
 }
