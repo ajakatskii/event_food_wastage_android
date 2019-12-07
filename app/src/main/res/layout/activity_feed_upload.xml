@@ -62,6 +62,7 @@
         android:background="#2EB86C"
         android:drawableStart="@android:drawable/ic_menu_send"
         android:drawablePadding="10dp"
+        android:onClick="btnPost_Click"
         android:paddingStart="25dp"
         android:paddingEnd="25dp"
         android:text=" post feed"

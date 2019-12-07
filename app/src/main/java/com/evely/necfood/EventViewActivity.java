@@ -1,12 +1,14 @@
 package com.evely.necfood;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,6 +38,8 @@ public class EventViewActivity extends AppCompatActivity {
     private RecyclerView rvFeeds;
 
     private RecyclerView.LayoutManager manager;
+
+    private CardView cvPostFeed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,14 @@ public class EventViewActivity extends AppCompatActivity {
 
         txtSelectedNonVegCount = findViewById(R.id.textView32);
         txtNonVegCount = findViewById(R.id.textView33);
+
+        cvPostFeed = findViewById(R.id.cvPostFeed);
+        if(!event.isOngoing)
+        {
+            cvPostFeed.setVisibility(View.INVISIBLE);
+        } else {
+            cvPostFeed.setVisibility(View.VISIBLE);
+        }
 
         rvFeeds = findViewById(R.id.recyclerView);
         manager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);

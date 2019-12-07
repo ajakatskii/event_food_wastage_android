@@ -9,41 +9,46 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvBefore"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="128dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="#ebebeb"
+        android:padding="10dp"
         app:cardBackgroundColor="#ebebeb"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView57">
 
         <ImageView
             android:id="@+id/imageView35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/photo_camera_128" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvAfter"
-        android:layout_width="0dp"
-        android:layout_height="128dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         app:cardBackgroundColor="#ebebeb"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView36">
 
         <ImageView
             android:id="@+id/imageView34"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
             android:layout_gravity="center"
             app:srcCompat="@drawable/photo_camera_128" />
     </androidx.cardview.widget.CardView>
@@ -53,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Dish Before"
         android:textColor="@android:color/white"
@@ -78,8 +83,8 @@
 
     <ImageView
         android:id="@+id/imageView36"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -119,6 +124,7 @@
                 android:id="@+id/cvCalories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp">
 
@@ -155,6 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp">
 

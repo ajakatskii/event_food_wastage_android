@@ -1,6 +1,7 @@
 package com.evely.necfood.data;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import com.evely.necfood.data.collections.EventCollection;
 import com.evely.necfood.data.collections.FeedCollection;
@@ -64,6 +65,18 @@ public class Registry {
             this.allNonVeg = SeedDataMemory.createAllNonVegFoodOptions();
         }
         return  this.allNonVeg;
+    }
+
+    public Bitmap beforeDish;
+
+    public void clearBeforeDishPic()
+    {
+        this.beforeDish = null;
+    }
+
+    public boolean hasBeforeDishPic()
+    {
+        return (this.beforeDish != null);
     }
 
 }

@@ -65,4 +65,17 @@ public class Utils {
         }
     }
 
+    public static double analyzeFoodWastage()
+    {
+        Double rand = Math.random();
+        rand = Double.parseDouble(String.valueOf(Math.round(rand * 10000.00)));
+        rand = rand/100.0;
+        return rand;
+    }
+
+    public static double analyzeCalories()
+    {
+        return Math.round(Math.random() * 100000.0) / 10.0;
+    }
+
 }
