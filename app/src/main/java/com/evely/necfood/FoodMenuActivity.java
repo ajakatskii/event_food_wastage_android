@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 
@@ -31,6 +33,7 @@ public class FoodMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_menu);
         getEventFromArg();
         loadViews();
+//        (new AttendanceDialog()).execute();
     }
 
     private void getEventFromArg()
@@ -62,6 +65,27 @@ public class FoodMenuActivity extends AppCompatActivity {
     public void btnBeverages_Click(View vw)
     {
         rvAdapter.changeData(new ArrayList<FoodItem>());
+    }
+
+
+    class AttendanceDialog extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            Intent intent = new Intent(getApplicationContext(), AttendanceActivity.class);
+            startActivity(intent);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                Thread.sleep(10000);
+            }catch (InterruptedException ex)
+            {
+
+            }
+            return null;
+        }
     }
 
 }

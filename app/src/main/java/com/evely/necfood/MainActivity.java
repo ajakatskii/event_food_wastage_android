@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView.LayoutManager layoutManager;
 
+    private UpcomingEventsAdapter rvAdapter;
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -167,7 +169,8 @@ public class MainActivity extends AppCompatActivity {
         this.rvEvents = this.findViewById(R.id.rvUpcomingEvents);
         this.layoutManager = new LinearLayoutManager(this, LinearLayout.HORIZONTAL, false);
         this.rvEvents.setLayoutManager(this.layoutManager);
-        this.rvEvents.setAdapter(new UpcomingEventsAdapter(this.eventCol.upcomingEvents));
+        rvAdapter = new UpcomingEventsAdapter(this.eventCol.upcomingEvents);
+        this.rvEvents.setAdapter(rvAdapter);
     }
 
     protected void setUser()
@@ -220,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         setCurrentEventData();
         setUser();
+        rvAdapter.notifyDataSetChanged();
     }
 
     public void txtReport_Click(View vw)

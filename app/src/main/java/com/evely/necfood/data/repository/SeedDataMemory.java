@@ -622,7 +622,7 @@ public class SeedDataMemory {
 
         rewards.add(
                 new Reward(
-                        "Exclusive Swiggy Delivery Free Coupon",
+                        "Swiggy Delivery Free Coupon",
                         "Enjoy 3 months of paying no delivery charges when you order on Swiggy. On availing, your coupon code will be emailed to you within 24 hours",
                         600,
                         false,
